@@ -30,7 +30,7 @@ CLASS ZCL_IM_PRNT_CCAT_WO IMPLEMENTATION.
     IF lv_tanum IS INITIAL.
       RETURN.
     ENDIF.
-*1 see if field ZHUFLAG is in request
+    "1 See if field ZHUFLAG is in request
     READ TABLE ct_request
     ASSIGNING FIELD-SYMBOL(<fs_request>) INDEX 1.
     READ TABLE <fs_request>-item_attributes
@@ -41,7 +41,7 @@ CLASS ZCL_IM_PRNT_CCAT_WO IMPLEMENTATION.
     ELSE.
       RETURN. "field is not in condition table, so value is not required
     ENDIF.
-    "2 get the WT from memory
+    "2 Get the WT from memory
     DATA(lv_who) = lo_appl->get_who( ).
     IF lv_who IS NOT INITIAL.
       TRY.
@@ -56,7 +56,7 @@ CLASS ZCL_IM_PRNT_CCAT_WO IMPLEMENTATION.
           "no error
       ENDTRY.
     ENDIF.
-    "3 determine if it is a product or HU task
+    "3 Determine if it is a product or HU task
     READ TABLE lt_ordim_o ASSIGNING FIELD-SYMBOL(<ordim_o>)
     WITH KEY tanum = lv_tanum.
     IF sy-subrc IS INITIAL.
@@ -67,7 +67,7 @@ CLASS ZCL_IM_PRNT_CCAT_WO IMPLEMENTATION.
           ls_attribute-value = 'H'.
       ENDCASE.
     ENDIF.
-    "4 return the value
+    "4 Return the value
     ls_attribute-fieldname = cv_fieldname. "'ZHUFLAG'
     TRANSLATE ls_attribute-value TO UPPER CASE.
     INSERT ls_attribute INTO TABLE <fs_request>-item_attributes.

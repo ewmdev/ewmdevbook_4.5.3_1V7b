@@ -19,6 +19,13 @@
      <DOMVALUE_L>P</DOMVALUE_L>
      <DDTEXT>Product Warehouse Task</DDTEXT>
     </DD07V>
+    <DD07V>
+     <DOMNAME>ZDO_HUFLAG</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>H</DOMVALUE_L>
+     <DDTEXT>HU Warehouse Task</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>
